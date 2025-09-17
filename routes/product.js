@@ -5,7 +5,7 @@ const {validateAdmin, userIsLoggedIn} = require("../middlewares/admin");
 const { GetProducts, DeleteProductbyID, DecProductStock, IncStockToProduct, CreateProducts, SetStockToProduct, UpdateProductPrice, GetAllProductInDB, GetProductImage, GetProductsByCategory, GetProductByID } = require("../AppController/productCont");
 
 
-router.get("/getproducts",userIsLoggedIn, GetProducts);
+router.get("/getproducts",GetProducts);
 router.get("/getallproductsindb", GetAllProductInDB);
 router.get("/product/:id", GetProductByID);
 router.get("/image/:productId/:index", GetProductImage);

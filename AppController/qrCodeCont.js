@@ -40,9 +40,28 @@ const getQR = async (req, res) => {
     }
 };
 
+const getQRCodeImage = async (req, res) => {
+  try {
+    const { productId } = req.params;
+
+    // Look in QRCode collection, not Product
+    const qr = await QRCode.findOne({ productId });
+    if (!qr || !qr.qrImage) {
+      return res.status(404).send("QR code image not found");
+    }
+
+    res.set("Content-Type", qr.contentType || "image/png");
+    res.send(qr.qrImage); // send the binary buffer
+  } catch (err) {
+    console.error("Error fetching QR code image:", err.message);
+    res.status(500).send("Server error");
+  }
+};
+
 
 
 module.exports = {
     uploadQR,
-    getQR
+    getQR,
+    getQRCodeImage
 }
