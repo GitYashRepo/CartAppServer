@@ -33,8 +33,8 @@ app.use(cookieParser());
 // ✅ CORS
 const corsOptions = {
     origin: ["http://localhost:3000","https://cart-app-navy.vercel.app"],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 };
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
@@ -50,7 +50,7 @@ app.use(expressSession({
     secret: process.env.SESSION_SECRET,
     cookie: {
         httpOnly: true,
-        secure: false,        // ⚠️ Set true only in production with HTTPS
+        secure: true,        // ⚠️ Set true only in production with HTTPS
         sameSite: "none",      // 'None' requires HTTPS
     },
 }));
