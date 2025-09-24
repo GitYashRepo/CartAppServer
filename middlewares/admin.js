@@ -20,12 +20,12 @@ async function validateAdmin(req, res, next) {
 }
 
 const userIsLoggedIn = async (req, res, next) => {
-  try {
     const token = req.cookies.token;
     if (!token) return res.status(401).json({ message: "Unauthorized" });
+  try {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await userModel.findById(decoded.id);
+    const user = await userModel.findById(decoded.id).select("-__v")
     if (!user) return res.status(401).json({ message: "Unauthorized" });
 
     req.user = user;

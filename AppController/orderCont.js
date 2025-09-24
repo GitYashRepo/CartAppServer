@@ -1,8 +1,8 @@
-const paymentModel = require("../models/payment");
-const orderModel = require("../models/order");
-const cartModel = require("../models/cart");
-const productModel = require("../models/product");
-const jwt = require("jsonwebtoken");
+const paymentModel = require("../models/payment")
+const orderModel = require("../models/order")
+const cartModel = require("../models/cart")
+const productModel = require("../models/product")
+const jwt = require("jsonwebtoken")
 
 
 const CreateOrder = async (req, res) => {
