@@ -18,8 +18,8 @@ const productRouter = require("./routes/product");
 const userRouter = require("./routes/user");
 const categoriesRouter = require("./routes/category");
 const cartRouter = require("./routes/cart");
-const paymentRouter = require("./routes/payment");
-const orderRouter = require("./routes/order");
+// const paymentRouter = require("./routes/payment");
+// const orderRouter = require("./routes/order");
 const qrRouter = require("./routes/qrCode");
 // const { warmUpProductCache } = require("./AppController/productCont");
 
@@ -71,8 +71,8 @@ app.use("/products", productRouter);
 app.use("/categories", categoriesRouter);
 app.use("/users", userRouter);
 app.use("/cart", cartRouter);
-app.use("/payment", paymentRouter);
-app.use("/order", orderRouter);
+// app.use("/payment", paymentRouter);
+// app.use("/order", orderRouter);
 app.use("/qr", qrRouter);
 app.get("/ping", (req, res) => {
   res.status(200).json({ message: "Backend is alive" });
