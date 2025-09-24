@@ -10,8 +10,8 @@ const CreateAdmin = async function( req, res ){
     try{
         let hash = await bcrypt.hash("cartapp", 10);
         let admin = new adminModel({
-            name:"Cart App",
-            email:"singhyash@gmail.com",
+            name:"CartApp",
+            email:"sauravgosain1@gmail.com",
             password: hash,
             role: "admin",
         });
