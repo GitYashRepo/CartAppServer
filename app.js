@@ -23,7 +23,7 @@ const cartRouter = require("./routes/cart");
 const qrRouter = require("./routes/qrCode");
 // const { warmUpProductCache } = require("./AppController/productCont");
 
-if (ENV.NODE_ENV === "development") job.start();
+if (ENV.NODE_ENV === "production") job.start();
 
 // --- MIDDLEWARES ---
 
@@ -32,7 +32,7 @@ app.use(cookieParser());
 
 // ✅ CORS
 const corsOptions = {
-    origin: ["http://localhost:3000","https://menstuff.vercel.app"],
+    origin: ["http://localhost:3000","https://cart-app-navy.vercel.app"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
 };
