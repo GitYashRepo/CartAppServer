@@ -17,7 +17,7 @@ const RegisterUser = async (req, res) => {
       // If user exists, still generate token
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
       res.cookie("token", token, { httpOnly: true, maxAge: 7 * 24 * 60 * 60 * 1000 });
-      return res.status(200).json({ message: "Already exists, logged in", user });
+      return res.status(200).json({ message: "User already exists", user });
     }
 
     user = new userModel({ firstname, lastname, phone });
